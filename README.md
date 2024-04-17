@@ -30,7 +30,8 @@ See [the lists of bugs](bugs.md) found by Acto.
 - Python >= 3.10 and dependencies (You may need venv if you are running Ubuntu20.04 or below)
     - `python3 -m pip install -r requirements.txt`
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
-
+- kubebuilder(controller-gen)
+    - `chmod +x install_kubebuilder.sh && ./install_kubebuilder.sh`	
 [optional]
 - [Helm](https://helm.sh/docs/intro/install/)
 - Development environment
