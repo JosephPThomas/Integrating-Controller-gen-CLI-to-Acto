@@ -92,26 +92,29 @@ try:
 except Exception as e:
     print('')
 version = search_text_in_repo(repo_address, text_to_search)
-repo_upload = repo_address + '.git'
-print(repo_upload)
-clone_repo(repo_upload, destination_folder)
-try:
-    os.chdir(destination_folder)
-    print(f"Changed directory to: {destination_folder}")
-except Exception as e:
-    print(f"An error occurred: {str(e)}")
-print('version:'+ version[1])
-# Define the command
-command = "controller-gen paths=./... crd:version="+version[1]+" output:crd:artifacts:config=../"
-
-# Execute the command
-try:
-    subprocess.run(command, shell=True, check=True)
-    print("Command executed successfully.")
-except subprocess.CalledProcessError as e:
-    print(f"Error executing command: {e}")
-try:
-    os.chdir('../')
-    print(f"Changed directory to: {'../'}")
-except Exception as e:
-    print(f"An error occurred: {str(e)}")
+if (version != ''):
+    repo_upload = repo_address + '.git'
+    clone_repo(repo_upload, destination_folder)
+    try:
+        os.chdir(destination_folder)
+        print(f"Changed directory to: {destination_folder}")
+    except Exception as e:
+        print(f"An error occurred: {str(e)}")
+    print('version:'+ version[1])
+    # Define the command
+    command = "controller-gen paths=./... crd:crdVersions="+version[1]+" output:crd:dir=../"
+    # Execute the command
+    try:
+        subprocess.run(command, shell=True, check=True)
+        print("Command executed successfully.")
+    except subprocess.CalledProcessError as e:
+        print(f"Error executing command: {e}")
+    try:
+        os.chdir('../')
+        print(f"Changed directory to: {'../'}")
+    except Exception as e:
+        print(f"An error occurred: {str(e)}")
+    try:
+        os.system(f'rm -rf {destination_folder}')
+    except Exception as e:
+        print('')

@@ -103,7 +103,11 @@ urllib3==2.1.0
     #   requests
 websocket-client==1.7.0
     # via kubernetes
-gitpython==2.34.1
+gitpython==3.1.40
     # via gitpython
+PyGithub==2.1.1
+    # via PyGithub
+python-gitlab==2.1
+    # via python-gitlab
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
