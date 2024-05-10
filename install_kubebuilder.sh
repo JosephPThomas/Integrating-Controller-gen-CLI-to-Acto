@@ -10,8 +10,12 @@ chmod +x kubebuilder
 sudo mv kubebuilder /usr/local/bin/
 
 # Install controller-gen CLI
-GO111MODULE=on go install sigs.k8s.io/controller-tools/cmd/controller-gen@latest
+go install sigs.k8s.io/controller-tools/cmd/controller-gen@latest
 
+# Move it to /bin
+export PATH=$PATH:$(go env GOPATH)/bin
+
+source ~/.bashrc
 
 echo "Kubebuilder installed successfully."
 
