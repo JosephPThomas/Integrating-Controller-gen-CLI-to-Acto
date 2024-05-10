@@ -32,7 +32,7 @@ See [the lists of bugs](bugs.md) found by Acto.
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
 - kubebuilder(controller-gen)
     - `chmod +x install_kubebuilder.sh && ./install_kubebuilder.sh`	[optional]
-    - 'python generatecrd.py --repo <GitHub_Repo> --token <GitHub_token>'
+    - `python generatecrd.py --repo <GitHub_Repo> --token <GitHub_token>`
 - [Helm](https://helm.sh/docs/intro/install/)
 - Development environment
   - `python3 -m pip install -r requirements-dev.txt`
